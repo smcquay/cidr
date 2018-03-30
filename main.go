@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-const usage = "sn <cidr>"
+const usage = "cidr <cidr>[, cidr2,...,cidrN]"
 
 func main() {
 	if len(os.Args) < 2 {
