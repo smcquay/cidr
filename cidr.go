@@ -67,7 +67,10 @@ func NoOverlap(subnets []*net.IPNet) error {
 		firstLastIP[i] = []net.IP{first, last}
 	}
 	for i, s := range subnets {
-		for j := i + 1; j < len(subnets); j++ {
+		for j := range subnets {
+			if i == j {
+				continue
+			}
 			first := firstLastIP[j][0]
 			last := firstLastIP[j][1]
 			if s.Contains(first) || s.Contains(last) {
